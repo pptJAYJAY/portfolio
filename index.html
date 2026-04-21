@@ -155,13 +155,14 @@ ul    { list-style: none; }
 @keyframes scroll { to { transform: translateX(-50%); } }
 
 /* ABOUT */
-.about-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+.about-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 24px; }
 .about-card { padding: 36px 32px; }
 .about-card:nth-child(1){border-top:3px solid var(--accent)}
 .about-card:nth-child(2){border-top:3px solid var(--pink)}
 .about-card:nth-child(3){border-top:3px solid var(--mint)}
+.about-card:nth-child(4){border-top:3px solid #f0c060}
 .about-card h3 { font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); margin-bottom: 18px; }
-.about-card:nth-child(2) h3{color:#c04888} .about-card:nth-child(3) h3{color:#1aaa90}
+.about-card:nth-child(2) h3{color:#c04888} .about-card:nth-child(3) h3{color:#1aaa90} .about-card:nth-child(4) h3{color:#b07800}
 .about-card p { font-size: 14.5px; line-height: 1.85; color: var(--muted); font-weight: 300; }
 .about-card p+p { margin-top: 12px; }
 .skill-list { display: flex; flex-direction: column; gap: 6px; }
@@ -417,9 +418,8 @@ footer { max-width: 1200px; margin: 0 auto; padding: 28px 40px; display: flex; j
       </div>
       <div class="card about-card reveal d1">
         <h3>Philosophy</h3>
-        <p>The broader desire for humanity in tech drives everything I build. As AI grows more powerful, the responsibility of its creators grows proportionally.</p>
-        <p>From classifying thyroid tissue slides to securing parcels with facial recognition — rigorous engineering and human empathy are not opposites. They are inseparable.</p>
-        <p>Currently part of Super AI Engineering Season 6, Thailand's most selective AI program.</p>
+        <p>Technology isn't just convenience — it's a <strong>tool for global transformation</strong>. That belief started with a simple curiosity for programming and deepened through hands-on research in a computer lab, where real-world experience reshaped how I learn and think.</p>
+        <p>I believe rigorous engineering and human empathy are inseparable. As AI grows more powerful, so does the responsibility of its creators — which is why everything I build starts with people in mind.</p>
       </div>
       <div class="card about-card reveal d2">
         <h3>Technical Skills</h3>
@@ -433,6 +433,11 @@ footer { max-width: 1200px; margin: 0 auto; padding: 28px 40px; display: flex; j
           <div class="skill-item">SolidWorks / 3D Printing</div>
           <div class="skill-item">Research &amp; Academic Writing</div>
         </div>
+      </div>
+      <div class="card about-card reveal d2">
+        <h3>Soft Skills</h3>
+        <p>Learning to balance academic responsibilities with extracurricular commitments has been one of the most valuable lessons for me — an essential skill in the workplace where responsibility to both oneself and others is crucial.</p>
+        <p>Working with diverse groups of people across research and competitions has taught me to be <strong>flexible, adaptive, and a better listener</strong> — skills I carry into every collaboration.</p>
       </div>
     </div>
   </div>
@@ -585,6 +590,9 @@ footer { max-width: 1200px; margin: 0 auto; padding: 28px 40px; display: flex; j
         <div class="contact-links">
           <a href="mailto:ploypapatnimitbunanan@gmail.com" class="contact-link">
             <span class="contact-link-icon">✉</span> ploypapatnimitbunanan@gmail.com
+          </a>
+          <a href="https://github.com/pptJAYJAY" target="_blank" rel="noopener" class="contact-link">
+            <span class="contact-link-icon">⌥</span> GitHub → pptJAYJAY
           </a>
           <a href="https://www.theforage.com/profile/nNxhyDKD2uFGKGrQy" target="_blank" rel="noopener" class="contact-link">
             <span class="contact-link-icon">⬡</span> Forage Portfolio → Ploypapat Nimitbunanan
