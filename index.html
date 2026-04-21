@@ -636,19 +636,48 @@ footer { max-width: 1200px; margin: 0 auto; padding: 28px 40px; display: flex; j
 <script>
 const isTouch = window.matchMedia('(pointer: coarse)').matches;
 if (!isTouch) {
-  const cur = document.getElementById('cur');
+  const cur  = document.getElementById('cur');
   const ring = document.getElementById('cur-ring');
-  let mx=0,my=0,rx=0,ry=0;
-  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
-  (function loop(){
-    rx+=(mx-rx)*.13; ry+=(my-ry)*.13;
-    cur.style.left=mx+'px'; cur.style.top=my+'px';
-    ring.style.left=rx+'px'; ring.style.top=ry+'px';
+
+  /* target position (raw mouse) */
+  let tx = window.innerWidth  / 2;
+  let ty = window.innerHeight / 2;
+
+  /* current interpolated position of the ring */
+  let rx = tx, ry = ty;
+
+  /* track mouse with passive listener for best perf */
+  document.addEventListener('mousemove', e => {
+    tx = e.clientX;
+    ty = e.clientY;
+  }, { passive: true });
+
+  /* use transform instead of left/top — avoids layout reflow, much smoother */
+  cur.style.left  = '0';
+  cur.style.top   = '0';
+  ring.style.left = '0';
+  ring.style.top  = '0';
+
+  let lastT = 0;
+  (function loop(t) {
+    const dt = Math.min((t - lastT) / 16.67, 3); /* clamp delta so tab-switch doesn't jump */
+    lastT = t;
+
+    /* dot snaps instantly to cursor */
+    cur.style.transform  = `translate(${tx}px,${ty}px) translate(-50%,-50%)`;
+
+    /* ring lerps smoothly — factor tuned for stability */
+    const ease = 1 - Math.pow(0.82, dt);
+    rx += (tx - rx) * ease;
+    ry += (ty - ry) * ease;
+    ring.style.transform = `translate(${rx}px,${ry}px) translate(-50%,-50%)`;
+
     requestAnimationFrame(loop);
-  })();
-  document.querySelectorAll('a,button,.proj-card,.about-card,.exp-card,.edu-card').forEach(el=>{
-    el.addEventListener('mouseenter',()=>{cur.style.width=cur.style.height='18px';ring.style.opacity='1';});
-    el.addEventListener('mouseleave',()=>{cur.style.width=cur.style.height='8px';ring.style.opacity='.45';});
+  })(0);
+
+  document.querySelectorAll('a,button,.proj-card,.about-card,.exp-card,.edu-card').forEach(el => {
+    el.addEventListener('mouseenter', () => { cur.style.width = cur.style.height = '18px'; ring.style.opacity = '1'; });
+    el.addEventListener('mouseleave', () => { cur.style.width = cur.style.height = '8px';  ring.style.opacity = '.45'; });
   });
 }
 
