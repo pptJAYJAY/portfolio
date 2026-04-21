@@ -16,4 +16,4 @@ Skills
 `Embedded Systems` `SolidWorks` `Research & Academic Writing`
 
 Connect
-📧 ploypapatnimitbunanan@gmail.com · 🌐 [Portfolio](https://pptJAYJAY.github.io/ยนพะดนสรน)
+📧 ploypapatnimitbunanan@gmail.com · 🌐 [Portfolio](https://pptJAYJAY.github.io/portfolio)
